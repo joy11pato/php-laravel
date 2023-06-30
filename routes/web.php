@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 /*
 Route::get('/test', function(){
@@ -31,6 +29,4 @@ Route::get('/test', function(){
 });
 */
 
-Route::get('/test', function () {
-    return view('test');
-});
+Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
