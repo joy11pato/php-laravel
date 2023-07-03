@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index');
+//Route::get('/', 'HomeController@index');
+Route::get('/dashboard', [\App\Http\Controllers\HomeController::class, 'index']);
 
 /*
 Route::get('/test', function(){
@@ -30,3 +31,5 @@ Route::get('/test', function(){
 */
 
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
+
+Route::resource('/expense_reports', \App\Http\Controllers\ExpenseReportController::class);
