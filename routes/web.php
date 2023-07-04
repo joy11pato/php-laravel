@@ -33,3 +33,7 @@ Route::get('/test', function(){
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index']);
 
 Route::resource('/expense_reports', \App\Http\Controllers\ExpenseReportController::class);
+
+//Route::get('/expense_reports/{id}/confirmDelete', '\App\Http\Controllers\ExpenseReportController@confirmDelete');
+
+Route::get('/expense_reports/{id}/confirmDelete', [\App\Http\Controllers\ExpenseReportController::class, 'confirmDelete']);
