@@ -38,6 +38,12 @@ class ExpenseController extends Controller
      */
     public function store(Request $request, ExpenseReport $expenseReport)
     {
+        $validaData = $request->validate([
+            'description' => 'required|min:3',
+            'amount' => 'required|integer|min:1'
+        ]);
+
+
         $expense = new Expense();
         $expense->descrption = $request->get('description');
         $expense->amount = $request->get('amount');
@@ -45,6 +51,7 @@ class ExpenseController extends Controller
         $expense->save();
 
         return redirect('/expense_reports/' . $expenseReport->id);
+    
     }
 
     /**
